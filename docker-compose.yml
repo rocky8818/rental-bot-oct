@@ -1,0 +1,15 @@
+services:
+  node:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    env_file: .env
+    image: ${PROJECT_NAME}:1.0.0
+    container_name: ${PROJECT_NAME}
+    volumes:
+      - ./bot_sessions:/app/bot_sessions
+    restart: unless-stopped
+   
+
+    ports:
+      - 3000:3000
